@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Header from './Header/Header'
 import Blogs from './components/Blogs/Blogs'
@@ -5,13 +6,19 @@ import Bookmarks from './components/Bookmarks/Bookmarks'
 
 function App() {
 
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const addToBookmark = blog => {
+
+  }
+
   return (
     <>
       <Header></Header>
-      <div className='md:flex'>
-        <Blogs></Blogs>
+      <section className='md:flex'>
+        <Blogs addToBookmark={addToBookmark}></Blogs>
         <Bookmarks></Bookmarks>
-      </div>
+      </section>
     </>
   )
 }
