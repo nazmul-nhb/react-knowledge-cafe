@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { CiBookmark } from "react-icons/ci";
 
 const Blog = ({ blog, addToBookmark, markAsRead }) => {
-    const { title, cover, reading_time, posted_date, author_img,
+    const { id, title, cover, reading_time, posted_date, author_img,
         author, hashtags } = blog;
 
     return (
@@ -27,7 +27,7 @@ const Blog = ({ blog, addToBookmark, markAsRead }) => {
                     hashtags.map((hash, idx) => <span key={idx}> <a href={`#${hash}`}>#{hash}</a> </span>)
                 }
             </p>
-            <button onClick={() => markAsRead(reading_time)} className='text-blue-900 font-bold underline'>Mark As Read</button>
+            <button onClick={() => markAsRead(id, reading_time)} className='text-blue-900 font-bold underline'>Mark As Read</button>
         </div>
     );
 };

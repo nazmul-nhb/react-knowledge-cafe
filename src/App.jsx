@@ -11,12 +11,17 @@ function App() {
 
   const addToBookmark = blog => {
     const newBookmarks = [...bookmarks, blog];
-    setBookmarks(newBookmarks);
+    // adding unique blog titles in the bookmark
+    const uniqueNewBookmarks = newBookmarks.filter((blog, idx, self) => self.indexOf(blog)===idx);
+    setBookmarks(uniqueNewBookmarks);
   }
 
-  const markAsRead = time => {
+  const markAsRead = (id, time) => {
     const newReadingTime = readingTime + time;
     setReadingTime(newReadingTime);
+    // remove the read blog title from bookmark
+    const remainingBookmarks = bookmarks.filter(bookmark => bookmark.id !== id);
+    setBookmarks(remainingBookmarks);
   }
 
   return (
