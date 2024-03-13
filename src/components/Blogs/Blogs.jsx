@@ -14,7 +14,7 @@ const Blogs = ({ addToBookmark }) => {
 
     return (
         <div className="md:w-2/3">
-            <h2 className="text-4xl">Blogs</h2>
+            {/* <h2 className="text-4xl">Blogs</h2> */}
             {
                 blogs.map(blog => <Blog key={blog.id} blog={blog} addToBookmark={addToBookmark}></Blog>)
             }

@@ -9,15 +9,16 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
 
   const addToBookmark = blog => {
-
+    const newBookmarks = [...bookmarks, blog];
+    setBookmarks(newBookmarks);
   }
 
   return (
     <>
       <Header></Header>
-      <section className='md:flex'>
+      <section className='md:flex gap-4 mt-8'>
         <Blogs addToBookmark={addToBookmark}></Blogs>
-        <Bookmarks></Bookmarks>
+        <Bookmarks bookmarks={bookmarks}></Bookmarks>
       </section>
     </>
   )
